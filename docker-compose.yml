@@ -1,0 +1,16 @@
+version: "0.1.0"
+services:
+  cartao_db:
+    image: postgres:10
+    volumes:
+      - db-data:/var/lib/postgresql/dangeous-dragons
+    environment:
+      POSTGRES_PASSWORD: dragons
+      POSTGRES_USER: dangeous
+      POSTGRES_DB: dangeous_dragons
+    ports:
+      - "5430:5432"
+
+volumes:
+  db-data:
+    driver: local
