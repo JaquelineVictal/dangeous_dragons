@@ -1,4 +1,4 @@
-package tech.java.dangeous_dragons.infrastructure.persistence.entity;
+package tech.java.dangeous_dragons.infrastructure.persistence.entity.character;
 
 import jakarta.persistence.*;
 import lombok.Data;
