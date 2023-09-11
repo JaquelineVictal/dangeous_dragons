@@ -1,6 +1,6 @@
 version: "0.1.0"
 services:
-  cartao_db:
+  dangeous_dragons_db:
     image: postgres:10
     volumes:
       - db-data:/var/lib/postgresql/dangeous-dragons
