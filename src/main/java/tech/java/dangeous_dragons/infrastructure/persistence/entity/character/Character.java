@@ -16,6 +16,6 @@ public class Character {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "character_type", referencedColumnName = "character_type")
+    @JoinColumn(name = "type", referencedColumnName = "id")
     private CharacterConfig characterConfig;
 }
