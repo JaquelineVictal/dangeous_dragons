@@ -2,6 +2,7 @@ package tech.java.dangeous_dragons.infrastructure.persistence.entity.character;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import tech.java.dangeous_dragons.common.enums.CharacterTypeEnum;
 
@@ -10,6 +11,7 @@ import tech.java.dangeous_dragons.common.enums.CharacterTypeEnum;
 @Entity
 @Table(name = "character_config")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor
 public class CharacterConfig {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
