@@ -23,7 +23,7 @@ public class CharacterConfig {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", unique = true)
-    private CharacterTypeEnum characterTypeEnum;
+    private CharacterTypeEnum characterType;
 
     @Column(name = "health-points")
     private double healthPoints;

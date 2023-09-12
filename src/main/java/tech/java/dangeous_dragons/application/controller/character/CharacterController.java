@@ -7,14 +7,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tech.java.dangeous_dragons.application.payloads.request.character.CreateCharacterRequest;
+import tech.java.dangeous_dragons.application.payloads.response.character.CreateCharacterResponse;
+import tech.java.dangeous_dragons.domain.service.character.CreateCharacterService;
 
 @RestController
-@RequestMapping(name = "/character")
+@RequestMapping("/character")
 @RequiredArgsConstructor
 public class CharacterController {
 
+    private final CreateCharacterService createCharacterService;
+
     @PostMapping(path = "", produces = "application/json")
-    public void createCharacter(@RequestBody @Valid CreateCharacterRequest dto) {
-        System.out.println(dto);
+    public CreateCharacterResponse createCharacter(@RequestBody @Valid CreateCharacterRequest createCharacterRequest) {
+        return createCharacterService.execute(createCharacterRequest);
     }
 }

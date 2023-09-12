@@ -1,8 +1,10 @@
 package tech.java.dangeous_dragons.application.payloads.response.character;
 
-public record CreateCharacterResponse(
-        String name,
-        CreateCharacterConfigResponse CharacterConfig
+import lombok.Data;
 
-) {
+@Data
+public class CreateCharacterResponse {
+    private Long id;
+    private String name;
+    private CreateCharacterConfigResponse createCharacterConfigResponse;
 }
