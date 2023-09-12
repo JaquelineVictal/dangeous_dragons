@@ -4,7 +4,7 @@ import lombok.Data;
 import tech.java.dangeous_dragons.common.enums.CharacterTypeEnum;
 
 @Data
-public class CreateCharacterConfigResponse {
+public class CharacterConfigResponse {
     private long id;
     private boolean isHero;
     private CharacterTypeEnum characterType;

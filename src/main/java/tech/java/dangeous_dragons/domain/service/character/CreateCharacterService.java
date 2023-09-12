@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tech.java.dangeous_dragons.application.mapper.CharacterToCreateCharacterResponseMapper;
 import tech.java.dangeous_dragons.application.payloads.request.character.CreateCharacterRequest;
-import tech.java.dangeous_dragons.application.payloads.response.character.CreateCharacterResponse;
+import tech.java.dangeous_dragons.application.payloads.response.character.CharacterResponse;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.Character;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.CharacterConfig;
 import tech.java.dangeous_dragons.infrastructure.persistence.repository.character.CharacterRepository;
@@ -17,7 +17,7 @@ public class CreateCharacterService {
     private final GetCharacterConfigService getCharacterConfigService;
 
 
-    public CreateCharacterResponse execute(CreateCharacterRequest createCharacterRequest) {
+    public CharacterResponse execute(CreateCharacterRequest createCharacterRequest) {
         CharacterConfig characterConfig = getCharacterConfigService.execute(createCharacterRequest.characterType());
 
         Character character = new Character();
@@ -25,7 +25,7 @@ public class CreateCharacterService {
         character.setCharacterConfig(characterConfig);
 
         Character characterSaved = characterRepository.save(character);
-        
+
         return CharacterToCreateCharacterResponseMapper.execute(characterSaved);
     }
 }

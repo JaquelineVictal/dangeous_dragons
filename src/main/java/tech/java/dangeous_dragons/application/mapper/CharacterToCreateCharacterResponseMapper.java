@@ -1,26 +1,29 @@
 package tech.java.dangeous_dragons.application.mapper;
 
-import tech.java.dangeous_dragons.application.payloads.response.character.CreateCharacterConfigResponse;
-import tech.java.dangeous_dragons.application.payloads.response.character.CreateCharacterResponse;
+
+import tech.java.dangeous_dragons.application.payloads.response.character.CharacterConfigResponse;
+import tech.java.dangeous_dragons.application.payloads.response.character.CharacterResponse;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.Character;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.CharacterConfig;
 
 public class CharacterToCreateCharacterResponseMapper {
 
-    public static CreateCharacterResponse execute(Character character) {
-        CreateCharacterConfigResponse createCharacterConfigResponse = formatCharacterConfigResponse(character.getCharacterConfig());
+    public static CharacterResponse execute(Character character) {
+        CharacterConfigResponse characterConfigResponse = formatCharacterConfigResponse(character.getCharacterConfig());
 
-        CreateCharacterResponse createCharacterResponse = new CreateCharacterResponse();
-        createCharacterResponse.setId(character.getId());
-        createCharacterResponse.setName(character.getName());
-        createCharacterResponse.setCreateCharacterConfigResponse(createCharacterConfigResponse);
+        CharacterResponse characterResponse = new CharacterResponse();
+        characterResponse.setId(character.getId());
+        characterResponse.setName(character.getName());
+        characterResponse.setCreatedAt(character.getCreatedAt());
+        characterResponse.setUpdatedAt(character.getUpdatedAt());
+        characterResponse.setCharacterConfigResponse(characterConfigResponse);
 
-        return createCharacterResponse;
+        return characterResponse;
     }
 
-    private static CreateCharacterConfigResponse formatCharacterConfigResponse(CharacterConfig characterConfig) {
+    private static CharacterConfigResponse formatCharacterConfigResponse(CharacterConfig characterConfig) {
 
-        CreateCharacterConfigResponse createCharacterConfigResponse = new CreateCharacterConfigResponse();
+        CharacterConfigResponse createCharacterConfigResponse = new CharacterConfigResponse();
 
         createCharacterConfigResponse.setId(characterConfig.getId());
         createCharacterConfigResponse.setHero(characterConfig.isHero());

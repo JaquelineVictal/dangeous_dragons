@@ -6,7 +6,6 @@ import tech.java.dangeous_dragons.common.enums.CharacterTypeEnum;
 public record CreateCharacterRequest(
         @NotNull
         String name,
-
         @NotNull
         CharacterTypeEnum characterType) {
 }
