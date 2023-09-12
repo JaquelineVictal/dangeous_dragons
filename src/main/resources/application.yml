@@ -29,5 +29,8 @@ spring:
         jdbc:
           batch_size: 50
   liquibase:
-    enabled: false
-
+    enabled: true
+    change-log: classpath:db/changelog/changelog-local.xml
+  databaseChangeLog:
+    - includeAll:
+        path: db/changelog/changes
