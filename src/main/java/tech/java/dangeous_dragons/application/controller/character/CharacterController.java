@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tech.java.dangeous_dragons.application.payloads.request.character.CharacterRequest;
 import tech.java.dangeous_dragons.application.payloads.response.character.CharacterResponse;
 import tech.java.dangeous_dragons.domain.service.character.CreateCharacterService;
+import tech.java.dangeous_dragons.domain.service.character.DeleteCharacterService;
 import tech.java.dangeous_dragons.domain.service.character.UpdateCharacterService;
 
 @RestController
@@ -16,6 +17,7 @@ public class CharacterController {
 
     private final CreateCharacterService createCharacterService;
     private final UpdateCharacterService updateCharacterService;
+    private final DeleteCharacterService deleteCharacterService;
 
     @PostMapping(path = "", produces = "application/json")
     public CharacterResponse createCharacter(@RequestBody @Valid CharacterRequest createCharacterRequest) {
@@ -27,7 +29,12 @@ public class CharacterController {
     public CharacterResponse updateCharacter(
             @PathVariable Long idCharacter,
             @RequestBody @Valid CharacterRequest createCharacterRequest) {
-        System.out.println(idCharacter);
         return updateCharacterService.execute(idCharacter, createCharacterRequest);
+    }
+
+    @Transactional
+    @DeleteMapping(path = "/{idCharacter}")
+    public String deleteCharacter(@PathVariable Long idCharacter) {
+        return deleteCharacterService.execute(idCharacter);
     }
 }
