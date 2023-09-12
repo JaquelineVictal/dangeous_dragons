@@ -16,16 +16,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CharacterConfigSeed implements CommandLineRunner {
 
+    private static final Long seedId = 1L;
     private final CharacterConfigRepository characterConfigRepository;
     private final SeedControlService seedControlService;
-    private final Long seedId = 1L;
-
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
 
-        if (seedControlService.existsById(seedId)) return;
+        if (Boolean.TRUE.equals(seedControlService.existsById(seedId))) return;
 
         List<CharacterConfig> characterConfigs = new ArrayList<>();
 
