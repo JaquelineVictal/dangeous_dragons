@@ -3,8 +3,8 @@ package tech.java.dangeous_dragons.infrastructure.persistence.entity.character;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 
@@ -25,11 +25,11 @@ public class Character {
     @JoinColumn(name = "character_config_id", referencedColumnName = "id")
     private CharacterConfig characterConfig;
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(name = "created_at")
     private Instant createdAt;
 
-    @LastModifiedDate
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private Instant updatedAt;
 

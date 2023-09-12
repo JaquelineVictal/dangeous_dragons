@@ -11,21 +11,20 @@ import tech.java.dangeous_dragons.infrastructure.persistence.repository.characte
 
 @Service
 @RequiredArgsConstructor
-public class CreateCharacterService {
+public class UpdateCharacterService {
 
     private final CharacterRepository characterRepository;
     private final GetCharacterConfigService getCharacterConfigService;
 
-
-    public CharacterResponse execute(CharacterRequest createCharacterRequest) {
+    public CharacterResponse execute(Long id, CharacterRequest createCharacterRequest) {
+        Character character = characterRepository.getReferenceById(id);
+        //TODO: validate if the character is in a battle
         CharacterConfig characterConfig = getCharacterConfigService.execute(createCharacterRequest.characterType());
 
-        Character character = new Character();
         character.setName(createCharacterRequest.name());
         character.setCharacterConfig(characterConfig);
 
-        Character characterSaved = characterRepository.save(character);
-
-        return CharacterToCreateCharacterResponseMapper.execute(characterSaved);
+        Character characterUpdated = characterRepository.save(character);
+        return CharacterToCreateCharacterResponseMapper.execute(characterUpdated);
     }
 }

@@ -26,6 +26,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
+        enable_lazy_load_no_trans: true
         jdbc:
           batch_size: 50
   liquibase:
