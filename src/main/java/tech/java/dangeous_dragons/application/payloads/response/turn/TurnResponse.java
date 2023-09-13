@@ -15,8 +15,8 @@ public class TurnResponse {
     private double attackForce;
     private Integer diceDefense;
     private double defenseForce;
-    private double diceDamage;
-    private Integer damageForce;
+    private Integer diceDamage;
+    private double damageForce;
     private double initialHealthCharacter;
     private double finalHealthCharacter;
     private double initialHealthOpponent;
