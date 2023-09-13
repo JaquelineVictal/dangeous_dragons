@@ -25,7 +25,7 @@ public class CharacterConfig {
     @Column(name = "type", unique = true)
     private CharacterTypeEnum characterType;
 
-    @Column(name = "health-points")
+    @Column(name = "health_points")
     private double healthPoints;
 
     private double attack;
@@ -34,7 +34,7 @@ public class CharacterConfig {
 
     private double agility;
 
-    @Column(name = "quantity-dice")
+    @Column(name = "quantity_dice")
     private int quantityDice;
 
     @Column(name = "dice-faces")
