@@ -30,19 +30,19 @@ public class Turn {
     private String attacker;
 
     @Column(name = "dice_attack")
-    private double diceAttack;
+    private Integer diceAttack;
 
     @Column(name = "attack_force")
     private double attackForce;
 
     @Column(name = "dice_defense")
-    private double diceDefense;
+    private Integer diceDefense;
 
     @Column(name = "defense_force")
     private double defenseForce;
 
     @Column(name = "dice_damage")
-    private double diceDamage;
+    private Integer diceDamage;
 
     @Column(name = "damage_force")
     private double damageForce;
