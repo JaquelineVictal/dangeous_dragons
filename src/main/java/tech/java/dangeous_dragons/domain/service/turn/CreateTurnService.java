@@ -19,7 +19,6 @@ import tech.java.dangeous_dragons.infrastructure.persistence.repository.turn.Tur
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -92,7 +91,7 @@ public class CreateTurnService {
 
     private List<TurnResponse> isNotFirsFirstTurn(Turn turn, BattleResponse battleResponse, int turnOrder, Boolean attackerIsCharacter) {
         if (Boolean.TRUE.equals(attackerIsCharacter)) {
-            Turn nextTurn = opponentAttack(
+            Turn nextTurn = characterAttack(
                     battleResponse,
                     turnOrder,
                     battleResponse.getCharacterResponse().getCharacterConfigResponse().getHealthPoints(),
@@ -110,7 +109,7 @@ public class CreateTurnService {
 
             return turnResponseList;
         }
-        Turn nextTurn = characterAttack(
+        Turn nextTurn = opponentAttack(
                 battleResponse,
                 turnOrder,
                 battleResponse.getCharacterResponse().getCharacterConfigResponse().getHealthPoints(),
@@ -131,7 +130,10 @@ public class CreateTurnService {
     }
 
     private Boolean attackerIsCharacter(BattleResponse battleResponse) {
-        return Objects.equals(battleResponse.getFirstAttack(), battleResponse.getCharacterResponse().getName());
+        String firstAttack = battleResponse.getFirstAttack();
+        String characterName = battleResponse.getCharacterResponse().getName();
+
+        return (firstAttack.equals(characterName));
     }
 
     private Turn characterAttack(BattleResponse battleResponse, int turnOrder, double initialHealthCharacter, double initialHealthOpponent) {
@@ -158,11 +160,11 @@ public class CreateTurnService {
 
         MakeTurnRequest makeTurnRequest = new MakeTurnRequest();
 
-        makeTurnRequest.setAttackerConfig(battleResponse.getCharacterResponse().getCharacterConfigResponse());
-        makeTurnRequest.setDefenderConfig(battleResponse.getOpponentConfigResponse());
+        makeTurnRequest.setAttackerConfig(battleResponse.getOpponentConfigResponse());
+        makeTurnRequest.setDefenderConfig(battleResponse.getCharacterResponse().getCharacterConfigResponse());
         makeTurnRequest.setBattle(battle);
         makeTurnRequest.setTurnOrder(turnOrder);
-        makeTurnRequest.setAttacker(battleResponse.getCharacterResponse().getName());
+        makeTurnRequest.setAttacker(battleResponse.getOpponentConfigResponse().getCharacterType().toString());
         makeTurnRequest.setAttackerIsCharacter(false);
         makeTurnRequest.setInitialHealthAttacker(initialHealthOpponent);
         makeTurnRequest.setInitialHealthDefender(initialHealthCharacter);

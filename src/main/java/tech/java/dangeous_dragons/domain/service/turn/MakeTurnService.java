@@ -25,9 +25,8 @@ public class MakeTurnService {
         double initialHealthAttacker = makeTurnRequest.getInitialHealthAttacker();
         double initialHealthDefender = makeTurnRequest.getInitialHealthDefender();
 
-
-        ForceCalculation attack = getForceCalculation(attackerConfig.getAttack(), attackerConfig.getDefense());
-        ForceCalculation defense = getForceCalculation(defenderConfig.getDefense(), attackerConfig.getAgility());
+        ForceCalculation attack = getForceCalculation(attackerConfig.getAttack(), attackerConfig.getAgility());
+        ForceCalculation defense = getForceCalculation(defenderConfig.getDefense(), defenderConfig.getAgility());
 
         Boolean isDamage = attack.getForce() > defense.getForce();
 
@@ -54,7 +53,7 @@ public class MakeTurnService {
         turn.setDiceAttack(attack.getDiceValue());
         turn.setAttackForce(attack.getForce());
         turn.setDiceDefense(defense.getDiceValue());
-        turn.setDamageForce(defense.getForce());
+        turn.setDefenseForce(defense.getForce());
         turn.setDiceDamage(diceValueDamage);
         turn.setDamageForce(damageForce);
 
@@ -63,12 +62,12 @@ public class MakeTurnService {
     }
 
     private ForceCalculation getForceCalculation(double attackOrDefense, double agility) {
-        int diceDefense = random.nextInt(12);
-        double defenseForce = diceDefense + attackOrDefense + agility;
+        int dice = random.nextInt(12);
+        double force = dice + attackOrDefense + agility;
 
         ForceCalculation forceCalculation = new ForceCalculation();
-        forceCalculation.setForce(defenseForce);
-        forceCalculation.setDiceValue(diceDefense);
+        forceCalculation.setForce(force);
+        forceCalculation.setDiceValue(dice);
         return forceCalculation;
     }
 
