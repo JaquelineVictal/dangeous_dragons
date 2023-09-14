@@ -2,6 +2,7 @@ package tech.java.dangeous_dragons.domain.service.turn;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import tech.java.dangeous_dragons.domain.payloads.request.ForceCalculation;
 import tech.java.dangeous_dragons.domain.payloads.request.MakeTurnRequest;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.battle.Battle;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.CharacterConfig;

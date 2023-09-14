@@ -1,4 +1,4 @@
-package tech.java.dangeous_dragons.domain.service.turn;
+package tech.java.dangeous_dragons.domain.payloads.request;
 
 import lombok.Data;
 
