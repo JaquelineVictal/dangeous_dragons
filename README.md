@@ -8,6 +8,10 @@
     - [Step 3]: Run the command `docker compose up`
     - [Step 4]: Run the command `mvn spring-boot:run` to start the application.
 
+# API documentation
+
+[API documentation](https://documenter.getpostman.com/view/29520786/2s9YC4WDd7)
+
 # How to Play
 
 ## Creating Your Character
@@ -17,7 +21,7 @@
 ### Heroes
 
 - **Warrior**
-    - Health points: 20
+    - Health Points: 20
     - Strength: 7
     - Defense: 5
     - Agility: 6
@@ -25,7 +29,7 @@
     - Dice Faces: 12
 
 - **Barbarian**
-    - Health points: 21
+    - Health Points: 21
     - Strength: 10
     - Defense: 2
     - Agility: 5
@@ -33,7 +37,7 @@
     - Dice Faces: 8
 
 - **Knight**
-    - Health points: 26
+    - Health Points: 26
     - Strength: 6
     - Defense: 8
     - Agility: 3
@@ -43,7 +47,7 @@
 ### Monsters
 
 - **Orc**
-    - Health points: 42
+    - Health Points: 42
     - Strength: 7
     - Defense: 1
     - Agility: 2
@@ -51,7 +55,7 @@
     - Dice Faces: 4
 
 - **Giant**
-    - Health points: 34
+    - Health Points: 34
     - Strength: 10
     - Defense: 4
     - Agility: 4
@@ -59,7 +63,7 @@
     - Dice Faces: 6
 
 - **Werewolf**
-    - Health points: 34
+    - Health Points: 34
     - Strength: 7
     - Defense: 4
     - Agility: 7

@@ -8,6 +8,10 @@
     - [Passo 3]: Execute o comando `docker compose up`
     - [Passo 4]: Execute o comando `mvn spring-boot:run` para iniciar a aplicação.
 
+# Documentação da API
+
+[Documentação da API](https://documenter.getpostman.com/view/29520786/2s9YC4WDd7)
+
 # Como Jogar
 
 ## Criando o Seu Personagem
