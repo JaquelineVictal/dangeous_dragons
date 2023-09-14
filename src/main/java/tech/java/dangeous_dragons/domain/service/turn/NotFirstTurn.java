@@ -6,6 +6,8 @@ import tech.java.dangeous_dragons.application.mapper.BattleToBattleResponseMappe
 import tech.java.dangeous_dragons.application.mapper.TurnToSimpleTurnResponseMapper;
 import tech.java.dangeous_dragons.application.payloads.response.turn.HistoryTurnResponse;
 import tech.java.dangeous_dragons.application.payloads.response.turn.SimpleTurnResponse;
+import tech.java.dangeous_dragons.domain.service.turn.attacker.CharacterAttack;
+import tech.java.dangeous_dragons.domain.service.turn.attacker.OpponentAttack;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.battle.Battle;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.turn.Turn;
 import tech.java.dangeous_dragons.infrastructure.persistence.repository.battle.BattleRepository;
@@ -50,7 +52,7 @@ public class NotFirstTurn {
                 turn.getFinalHealthCharacter(),
                 turn.getFinalHealthOpponent()
         );
-        
+
         Turn nextTurnSaved = turnRepository.save(nextTurn);
         Battle updateBattle = updateBattle(nextTurnSaved);
 
