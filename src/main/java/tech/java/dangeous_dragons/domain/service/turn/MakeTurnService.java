@@ -2,9 +2,9 @@ package tech.java.dangeous_dragons.domain.service.turn;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import tech.java.dangeous_dragons.application.payloads.response.character.CharacterConfigResponse;
 import tech.java.dangeous_dragons.domain.payloads.request.MakeTurnRequest;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.battle.Battle;
+import tech.java.dangeous_dragons.infrastructure.persistence.entity.character.CharacterConfig;
 import tech.java.dangeous_dragons.infrastructure.persistence.entity.turn.Turn;
 
 import java.util.Random;
@@ -16,8 +16,8 @@ public class MakeTurnService {
 
     public Turn execute(MakeTurnRequest makeTurnRequest) {
 
-        CharacterConfigResponse attackerConfig = makeTurnRequest.getAttackerConfig();
-        CharacterConfigResponse defenderConfig = makeTurnRequest.getDefenderConfig();
+        CharacterConfig attackerConfig = makeTurnRequest.getAttackerConfig();
+        CharacterConfig defenderConfig = makeTurnRequest.getDefenderConfig();
         Battle battle = makeTurnRequest.getBattle();
         int turnOrder = makeTurnRequest.getTurnOrder();
         String attacker = makeTurnRequest.getAttacker();

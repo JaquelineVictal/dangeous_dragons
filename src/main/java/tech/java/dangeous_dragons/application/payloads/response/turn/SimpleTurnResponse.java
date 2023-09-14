@@ -1,13 +1,11 @@
 package tech.java.dangeous_dragons.application.payloads.response.turn;
 
 import lombok.Data;
-import tech.java.dangeous_dragons.application.payloads.response.battle.BattleResponse;
 
 import java.time.Instant;
 
 @Data
-public class TurnResponse {
-    private BattleResponse battleResponse;
+public class SimpleTurnResponse {
     private Long id;
     private Integer turnOrder;
     private String attacker;

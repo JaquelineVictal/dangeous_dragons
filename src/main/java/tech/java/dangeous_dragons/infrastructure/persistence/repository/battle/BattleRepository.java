@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface BattleRepository extends JpaRepository<Battle, Long> {
     Optional<Battle> findByIdAndIsActiveTrue(Long id);
+
 }
