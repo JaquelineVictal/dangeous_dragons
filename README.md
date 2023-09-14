@@ -17,7 +17,7 @@
 ### Heroes
 
 - **Warrior**
-    - Life: 20
+    - Health points: 20
     - Strength: 7
     - Defense: 5
     - Agility: 6
@@ -25,7 +25,7 @@
     - Dice Faces: 12
 
 - **Barbarian**
-    - Life: 21
+    - Health points: 21
     - Strength: 10
     - Defense: 2
     - Agility: 5
@@ -33,7 +33,7 @@
     - Dice Faces: 8
 
 - **Knight**
-    - Life: 26
+    - Health points: 26
     - Strength: 6
     - Defense: 8
     - Agility: 3
@@ -43,7 +43,7 @@
 ### Monsters
 
 - **Orc**
-    - Life: 42
+    - Health points: 42
     - Strength: 7
     - Defense: 1
     - Agility: 2
@@ -51,7 +51,7 @@
     - Dice Faces: 4
 
 - **Giant**
-    - Life: 34
+    - Health points: 34
     - Strength: 10
     - Defense: 4
     - Agility: 4
@@ -59,7 +59,7 @@
     - Dice Faces: 6
 
 - **Werewolf**
-    - Life: 34
+    - Health points: 34
     - Strength: 7
     - Defense: 4
     - Agility: 7
@@ -102,9 +102,9 @@ Example:
 - Barbarian: number of dice x dice faces (2 random numbers from 1 to 8, sum of 2 to 16).
 - Orc: number of dice x dice faces (3 random numbers from 1 to 4, sum of 3 to 12).
 
-## Hit Points
+## Health Points
 
-Finally, we have character hit points (HP). When taking damage, subtract the damage value from the character's HP. If
+Finally, we have character Health Points (HP). When taking damage, subtract the damage value from the character's HP. If
 the defender reaches zero or fewer HP, the battle will end instantly.
 
 If your defender survives the attack, it's their turn to attack. Get ready!
